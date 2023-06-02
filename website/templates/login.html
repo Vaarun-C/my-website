@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+{% endblock %}
+{% block content %}
+	<div class="input-form-div">
+		<form class="login-form" method="POST">
+			<div class="form-content">
+				<h3 class="login-header" align="center">Login</h3>
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input
+					type="email"
+					class="form-control"
+					id="email"
+					name="email"
+					placeholder="Enter email"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input
+					type="password"
+					class="form-control"
+					id="password"
+					name="password"
+					placeholder="Enter password"
+					/>
+				</div>
+				<br/>
+				<div class="buttons-div">
+					<button type="submit" id="login-btn" class="btn btn-primary">Login</button>
+					<form id="signup-btn-form" action="/login" method="POST">
+						<button id="signup-btn" type="button">Sign Up</button>
+					</form>
+				</div>
+				<div class="google-btn-container">
+					<form id="signup-btn-form" action="/login" method="POST">
+						<button class="google-signin-button" type="button" >
+							Sign in with Google
+						</button>
+					</form>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		const signup_btn = document.getElementById('signup-btn');
+		signup_btn.addEventListener('click', function() {
+			window.location.href = "/sign-up";
+		});
+		const google_login = document.getElementsByClassName('google-signin-button')[0];
+		google_login.addEventListener('click', function() {
+			window.location.href = "/login-google";
+		});
+	</script>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

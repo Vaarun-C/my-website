@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+{% endblock %}
+{% block title %}Home{% endblock %}
+{% block content %}
+	<script>
+		function interested(parentID) {
+			window.location.href = "/startup-details?id=" + parentID;
+		}
+	</script>
+	<div class="slider-container">
+		<div class="slider">
+			{% for startup in startups %}
+			<div id={{startup.id}} class="card">
+				<h3>{{ startup.name }}</h3>
+				<p class="startup-description">{{ startup.small_description }}</p>
+				<button class="interested" onclick="interested(this.parentElement.id)">I'm Interested</button>
+			</div>
+			{% endfor %}
+		</div>
+		<button class="prev-button">
+			<img class="prev-button-img" src="{{ url_for('static', filename='img/chevron.png') }}" alt="Button Image">
+		</button>
+		<button class="next-button">
+			<img class="next-button-img" src="{{ url_for('static', filename='img/chevron.png') }}" alt="Button Image">
+		</button>
+	</div>
+{% endblock %}
+
+{% block js %}
+	<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

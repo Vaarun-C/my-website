@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+	font-family: 'Poppins', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+section {
+	display: grid;
+	place-items: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.founders {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 300%;
+}
+
+.founder {
+	margin: 10px;
+	flex-grow: 1;
+	text-align: center;
+}
+
+.hidden {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(-100%);
+	transition: all 1s;
+
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transform: translateX(0);
+}
+
+.name-logo {
+	margin: 0px;
+	padding: 0px;
+	gap: 0px;
+}
+
+.logo-container {
+	max-width: 50%;
+	max-height: 50%;
+/*	overflow: hidden;*/
+}
+
+.logo-container .logo {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
+}
+
+.name {
+	font-size: 500%;
+	font-weight: bold;
+	text-align: center;
+	flex-grow: 1;
+}
+
+.founder-pic {
+	height: 30%;
+	width: 30%;
+}
+
+.description {
+	font-size: 150%;
+	text-align: center;
+}
+
+.video {
+	width: 100%;
+	height: 80%;
+}
+
+.news-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.news-header {
+	font-size: 300%;
+	padding-bottom: 10%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.news-link {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+.news-content {
+	text-align: center;
+}
+
+.news-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.reviews-header {
+	font-size: 300%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.reviews-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+}
+
+.review-content {
+	text-align: center;
+}
+
+.rating {
+  display: inline-block;
+  font-size: 24px;
+  color: slategray; /* Star color */
+}
+
+.rating::before {
+  content: '\2605 \2605 \2605 \2605 \2605'; /* Five filled stars */
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.rating[data-rating="5"]::before {
+  content: '\2605 \2605 \2605 \2605 \2605'; /* Five filled stars */
+}
+
+.rating[data-rating="4"]::before {
+  content: '\2605 \2605 \2605 \2605 \2606'; /* Four filled stars and one empty star */
+}
+
+.rating[data-rating="3"]::before {
+  content: '\2605 \2605 \2605 \2606 \2606'; /* Four filled stars and one empty star */
+}
+
+.rating[data-rating="2"]::before {
+  content: '\2605 \2605 \2606 \2606 \2606'; /* Four filled stars and one empty star */
+}
+
+.rating[data-rating="1"]::before {
+  content: '\2605 \2606 \2606 \2606 \2606'; /* Four filled stars and one empty star */
+}
+
+.rating[data-rating="0"]::before {
+  content: '\2606 \2606 \2606 \2606 \2606'; /* Four filled stars and one empty star */
+}
+

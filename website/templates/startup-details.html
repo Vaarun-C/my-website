@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/details.css') }}" />
+{% endblock %}
+
+{% block js %}
+	<script defer src="{{ url_for('static', filename='js/details.js') }}"></script>
+{% endblock %}
+
+{% block title %}{{startup.name}}{% endblock %}
+
+{% block content %}
+	<section class="name-logo hidden">
+		<div class="logo-container">
+			<img class="logo" src="{{ url_for('static', filename='img/' + startup.name + '.png') }}">
+		</div>
+		<h2 class="name">{{startup.name}}</h2>
+	</section>
+	<section class="founders hidden">
+		{% for key, founder in startup.founders.items() %}
+			{% set int_key = key|int %}
+			<div id={{key}} style="transition-delay: {{(int_key+1.5)*100}}ms;" class="founder hidden">
+				<p class="founder-name">{{founder}}</p>
+				<img class="founder-pic" src="{{ url_for('static', filename='img/founder-placeholder.png') }}">
+			</div>
+		{% endfor %}
+	</section>
+	<section class="description hidden">
+		{{startup.large_description}}
+	</section>
+	{% if startup.video_link %}
+		<section class="video-div hidden">
+				<iframe class="video" src={{startup.video_link}} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</section>
+	{% endif %}
+	<section class="news-div hidden">
+		<h4 class="news-header">NEWS</h4>
+		<div class="news-content">
+			{% for article in news.values() %}
+				<a target="_blank" class="news-link" href={{article['url']}}>{{article['title']}}</a>
+				<p class="news"> {{article['description']}} </p>
+				<br><br>
+			{% endfor %}
+		</div>
+	</section>
+	{% if reviews|length > 1 %}
+		<section class="reviews-div hidden">
+			<h4 class="reviews-header">REVIEWS</h4>
+				{% for review in reviews %}
+					<div class="review-content">
+						<div class="rating" data-rating={{review['rating'][0]}}></div>
+						<div class="review">"{{review['review']}}"</div>
+						<div class="reviewer">-{{review['reviewer'][:review['reviewer'].index('-')]}}</div>
+					</div>
+				{% endfor %}
+		</section>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block css %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}" />
+{% endblock %}
+{% block content %}
+	<div class="signup-form-div">
+		<form class="signup-form" method="POST">
+			<div class="form-content">
+				<h3 class="signup-header" align="center">Sign Up</h3>
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input
+					type="email"
+					class="form-control"
+					id="email"
+					name="email"
+					placeholder="Enter email"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="firstName">First Name</label>
+					<input
+					type="text"
+					class="form-control"
+					id="firstName"
+					name="firstName"
+					placeholder="Enter first name"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="password1">Password</label>
+					<input
+					type="password"
+					class="form-control"
+					id="password1"
+					name="password1"
+					placeholder="Enter password"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="password2">Password (Confirm)</label>
+					<input
+					type="password"
+					class="form-control"
+					id="password2"
+					name="password2"
+					placeholder="Confirm password"
+					/>
+				</div>
+				<br />
+				<div class="btn-container">
+					<button id="signup-btn" type="submit" class="btn btn-primary buttons">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+{% endblock %}
